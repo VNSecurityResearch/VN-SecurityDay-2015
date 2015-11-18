@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="corp.hptvietnam.secureactivity" >
+
+    <!-- Step 1: Define Permission with <permission> tag with protectionLevel="signature" -->
+    <permission android:name="corp.hptvietnam.secureactivity.TrustViewer" android:protectionLevel="signature" ></permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Define secret activity with intent-filter (implicit exported), but protected with android:permission -->
+        <activity android:name=".SecretActivity" android:permission="corp.hptvietnam.secureactivity.TrustViewer"> <!--android:exported="true" -->
+            <intent-filter>
+                <action android:name="corp.hptvietnam.secureactivity.VIEW_SECRET"></action>
+                <category android:name="ANDROID.INTENT.CATEGORY.DEFAULT"></category>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
