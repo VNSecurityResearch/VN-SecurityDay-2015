@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hptsec.vulnlab"
+    android:installLocation="internalOnly"
+    android:versionCode="1"
+    android:versionName="1.2" >
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- Get Imei Number -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Sherlock" >
+        <activity
+            android:name="com.hptsec.vulnlab.VulnAppMainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.hptsec.vulnlab.Controller.FileHandleProvider"
+            android:authorities="com.hptsec.vulnlab.Controller.FileHandleProvider"
+            android:exported="true"
+            android:label="FileHandleProvider" >
+        </provider>
+
+        <activity android:name="com.hptsec.vulnlab.VulnActivity.M7Case5VulnActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Receiver Region -->
+        <receiver android:name="com.hptsec.vulnlab.BroadcastReceiver.M8Case1Recever1" >
+            <intent-filter android:priority="3" >
+                <action android:name="com.hptsec.OrderedBroadcast" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.hptsec.vulnlab.BroadcastReceiver.M8Case1Receiver2" >
+            <intent-filter android:priority="2" >
+                <action android:name="com.hptsec.OrderedBroadcast" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.hptsec.vulnlab.BroadcastReceiver.M8Case1Receiver3" >
+            <intent-filter android:priority="1" >
+                <action android:name="com.hptsec.OrderedBroadcast" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".Controller.M8case2ActivityOwner"
+            android:label="@string/title_activity_m8case2_activity_hijacking" >
+            <intent-filter>
+                <action android:name="com.hptsec.vulnlab.implicitintent" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

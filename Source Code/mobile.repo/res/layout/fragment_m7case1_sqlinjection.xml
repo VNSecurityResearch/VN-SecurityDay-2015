@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:paddingBottom="30dp"
+            android:paddingTop="26dp"
+            android:text="Case 1\nSQL Injection"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/holo_red_dark"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="138dp"
+                android:layout_height="match_parent"
+                android:gravity="left|center"
+                android:text="&quot;My&quot; Note: "
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textStyle="normal"
+                android:typeface="serif" />
+
+            <com.hptsec.vulnlab.CustomControl.MyEditText
+                android:id="@+id/txtM7C1Query"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="left|center_vertical"
+                android:hint="Type here"
+                android:singleLine="true"
+                android:typeface="serif" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnM7C1Search"
+            style="@style/btnStyleOrange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:text="Inject Me"
+            android:textColor="@android:color/white"
+            android:textStyle="normal"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/txtM7C1Result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="5dp" />
+
+        <TextView
+            android:id="@+id/txtM7C1VulnDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|fill_vertical"
+            android:paddingTop="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+        <View
+            android:id="@+id/viewSplitter"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:color/transparent" />
+
+        <ListView
+            android:id="@+id/lstM7C1SearchResult"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" >
+        </ListView>
+    </LinearLayout>
+
+</ScrollView>

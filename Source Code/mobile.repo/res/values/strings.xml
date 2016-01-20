@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">HPT Android VulnLab</string>
+    <string name="action_contact">Contact</string>
+    <string name="project_author">BaoLQ: baolq@hpt.vn</string>
+
+    <string-array name="vulnerablecategory_array">
+        <item>Project Info</item>
+        <item>M2</item>
+        <item>M3</item>
+        <item>M4</item>
+        <item>M5</item>
+        <item>M6</item>
+        <item>M7</item>
+        <item>M8</item>
+        <item>M9</item>
+        <item>M10</item>
+    </string-array>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+
+    <string-array name="owasp_top10_categories">
+        <item>M1 - Weak Server Side Controls</item>
+        <item>M2 - Insecure Data Storage</item>
+        <item>M3 - Insufficient Transport Layer Protection</item>
+        <item>M4 - Unintended Data Leak</item>
+        <item>M5 - Poor Authen/Authorization</item>
+        <item>M6 - Broken Cryptography</item>
+        <item>M7 - Client Side Injection</item>
+        <item>M8 - Security Decisions via Untrusted Input</item>
+        <item>M9 - Improper Session Handling</item>
+        <item>M10 - Lack of Binary Protection</item>
+    </string-array>
+
+    <!-- Vuln Description String -->
+
+
+    <!-- M2 - Insecure Data Storage -->
+    <string name="m2case1_vulndescription">The SharedPreferences class provides a general framework that allows you to save and retrieve persistent key-value pairs of primitive data types. You can use SharedPreferences to save any primitive data: booleans, floats, ints, longs, and strings. This data will persist across user sessions (even if your application is killed).\nDO NOT SAVE ANY SENSITIVE/CREDENTIALS USING THIS TECHNIQUE!</string>
+    <string name="m2case2_vulndescription">SQLite is a popular choice as embedded database for local/client storage in application software such as web browsers. It is arguably the most widely deployed database engine, as it is used today by several widespread browsers, operating systems, and embedded systems, among others.\nDO NOT STORE CREDENTIALS IN SQLITE DB!!!</string>
+    <string name="m2case3_vulndescription">You can save files directly on the device\'s internal storage. By default, files saved to the internal storage are private to your application and other applications cannot access them (nor can the user). When the user uninstalls your application, these files are removed.\nDO NOT STORE SENSITIVE INFORMATION VIA CACHE INSTEAD OF MODE PRIVATE!</string>
+    <string name="m2case4_vulndescription">Although the directories provided by getExternalFilesDir() and getExternalFilesDirs() are not accessible by the MediaStore content provider, other apps with the READ_EXTERNAL_STORAGE permission can access all files on the external storage, including these. If you need to completely restrict access for your files, you should instead write your files to the internal storage.\nTHERE IS NOTHING RESTRICTED ACCESS TO YOUR FILE</string>
+    <string name="m2case5_vulndescription">You are using a strong encryption method, but you should keep in mind that NEVER STORE YOUR ENCRYPTION KEY on INTERNAL STORAGE.</string>
+    <string name="m2case6_vulndescription">In this case, we are trying to store the session token from remote server, this value to maintain logged in user.\nIF YOU WANT TO STORE THEM, YOU SHOULD HAVE AN ENCRYPTION METHOD!</string>
+
+    <!-- M5 - Poor Authentication/Authorization -->
+    <string name="m5case1_vulndescription">If there are any exported component vulnerability existing on this app together with the granted permission. A malicious app can call the system provided API without any granted permission.</string>
+    <string name="m5case2_vulndescription"></string>
+    <string name="m5case3_vulndescription">The most prevalent and most easily administered authentication mechanism is a static password. The password represents the keys to the kingdom, but is often subverted by users in the name of usability. In each of the recent high profile hacks that have revealed user credentials, it is lamented that most common passwords are still: 123456, password and qwerty.</string>
+
+    <!-- M4 - Unintended Data Leak -->
+    <string name="m4case1_vulndescription">When the device is low on internal storage space, Android may delete these cache files to recover space. However, you should not rely on the system to clean up these files for you. You should always maintain the cache files yourself and stay within a reasonable limit of space consumed, such as 1MB. When the user uninstalls your application, these files are removed. My recommend is that you never use this technique to cache sensitive information like user credentials, etc.</string>
+
+    <!-- M7 - Client Side Injection -->
+    <string name="m7case1_vulndescription">When designing queries for SQLite be sure that user supplied data is being passed to a parameterized query. This can be spotted by looking for the format specifier used. In general, dangerous user supplied data will be inserted by a "%@" instead of a proper parameterized query specifer of \"?\".</string>
+    <string name="m7case2_vulndescription">The mobile browser is subject to JavaScript injection as well. Usually the mobile browser has access to the mobile applications cookie, which can lead to session theft. BE CAREFUL IF YOU DECIDED TO USE WEBVIEW AND JAVASCRIPT ENABLED.</string>
+    <string name="m7case3_vulndescription">Path manipulation errors occur when the following two conditions are met:\n1. An attacker can specify a path used in an operation on the filesystem.\n2. By specifying the resource, the attacker gains a capability that would not otherwise be permitted. For example, the program may give the attacker the ability to overwrite the specified file or run with a configuration controlled by the attacker.\nAllowing user input to control paths used in filesystem operations may enable an attacker to access or modify protected system resources.</string>
+    <string name="m7case4_vulndescription">Local File Inclusion (also known as LFI) is the process of including files, that are already locally present on the server, through the exploiting of vulnerable inclusion procedures implemented in the application. This vulnerability occurs, for example, when a page receives, as input, the path to the file that has to be included and this input is not properly sanitized, allowing directory traversal characters (such as dot-dot-slash) to be injected.\nAndroid Web View is not EXCEPTION, they also VULNERABLE!</string>
+    <string name="m7case5_vulndescription_1">This vulnerability affected many apps, including Settings (the one that is found on every Android device), Gmail, Google Now, DropBox and Evernote.  To be more accurate, any App which extended the PreferenceActivity class using an exported activity was automatically vulnerable. A patch has been provided in Android KitKat.</string>
+    <string name="m7case5_vulndescription_2">Any app which implements and exports an activity that extends a PreferenceActivity class can be subverted to load an arbitrary class by exploiting the dynamic fragment loading process. A user can bypass sandbox restriction by hosting \'ChooseLockPassword.ChooseLockPasswordFragment\' inside Settings (using the \":android:show_fragment\" extra parameter, and invoking Settings with the \"confirm_credentials\" extra set to FALSE.</string>
+    <string name="title_activity_m8case2_activity_hijacking">M8Case2 - ActivityHijackingOwner</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_contact"
+        android:icon="@drawable/ic_action_user"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_contact"/>
+    <item
+        android:id="@+id/m2case6_setting_menu"
+        android:title="Settings">
+    </item>
+
+</menu>
